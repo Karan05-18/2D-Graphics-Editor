@@ -1,0 +1,668 @@
+Day 1 Plan (What you should do)
+Step 1: Create GitHub Repository
+Go to GitHub
+Click New Repository
+
+Repository name:
+
+2D-Graphics-Editor
+Select Public
+Click Create Repository
+Step 2: Create Project Folder
+
+Create a folder on your computer:
+
+2D-Graphics-Editor
+
+Inside it create:
+
+2D-Graphics-Editor
+│
+├── graphics_editor.c
+├── README.md
+└── screenshots
+Step 3: Write Basic Program
+
+On Day 1 don't try to complete everything.
+
+Just create:
+
+#include <stdio.h>
+
+#define ROWS 25
+#define COLS 60
+
+char picture[ROWS][COLS];
+
+void clearPicture()
+{
+    int i,j;
+
+    for(i=0;i<ROWS;i++)
+    {
+        for(j=0;j<COLS;j++)
+        {
+            picture[i][j]='_';
+        }
+    }
+}
+
+void displayPicture()
+{
+    int i,j;
+
+    for(i=0;i<ROWS;i++)
+    {
+        for(j=0;j<COLS;j++)
+        {
+            printf("%c",picture[i][j]);
+        }
+
+        printf("\n");
+    }
+}
+
+int main()
+{
+    clearPicture();
+    displayPicture();
+
+    return 0;
+}
+
+Run it and verify that only _ characters appear.
+
+Step 4: Create README.md
+
+Write:
+
+# 2D Graphics Editor
+
+A simple 2D graphics editor written in C using a 2D character array.
+
+Features:
+- Draw Line
+- Draw Rectangle
+- Draw Triangle
+- Draw Circle
+- Add Objects
+- Delete Objects
+- Modify Objects
+Step 5: First Git Commit
+
+Open terminal in project folder:
+
+git init
+git add .
+git commit -m "Day 1: Created project structure and display function"
+
+Connect repository:
+
+git remote add origin YOUR_REPOSITORY_LINK
+git branch -M main
+git push -u origin main
+What should be completed on Day 1?
+
+✅ GitHub repository created
+
+✅ Project folder created
+
+✅ graphics_editor.c created
+
+✅ 2D array (picture[][]) created
+
+✅ clearPicture() function
+
+✅ displayPicture() function
+
+✅ First push to GitHub
+
+That's enough for Day 1.
+
+Day 2
+Draw Line function
+Day 3
+Draw Rectangle function
+Day 4
+Draw Triangle function
+Day 5
+Draw Circle function
+Day 6
+Add/Delete/Modify menu
+Day 7
+Testing, screenshots, final GitHub submission
+
+This way you'll have a daily push, which your assignment specifically requires.
+where
+
+You typed/compiled this file:
+
+gcc graphic_editor.c -o graphic_editor.exe
+
+But your file may be empty or it does not have proper:
+
+int main()
+
+That is why it shows:
+
+undefined reference to WinMain@16
+Do this now
+
+Open graphic_editor.c and paste this full code:
+
+#include <stdio.h>
+
+#define ROWS 25
+#define COLS 60
+
+char picture[ROWS][COLS];
+
+void clearPicture()
+{
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            picture[i][j] = '_';
+        }
+    }
+}
+
+void displayPicture()
+{
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            printf("%c", picture[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    clearPicture();
+    displayPicture();
+
+    return 0;
+}
+
+Save: Ctrl + S
+
+Then run:
+
+gcc graphic_editor.c -o graphic_editor.exe
+.\graphic_editor.exe
+
+You should see many _ _ _ _ lines.
+Sure yaar. Let's understand Day 1 completely before writing any code.
+
+What is the aim of Day 1?
+
+Imagine you are making a drawing notebook.
+
+Before drawing a rectangle, circle, or line, you first need a blank page.
+
+Day 1 is only about creating that blank page.
+
+Step 1: Create the Picture
+
+We will use a 2D array:
+
+char picture[25][60];
+
+Meaning:
+
+25 rows
+60 columns
+
+Like this:
+
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+[ ][ ][ ][ ][ ]
+
+Actually there are 25 rows and 60 columns.
+
+This array is our drawing screen.
+
+Step 2: Fill the Screen
+
+Initially the array contains garbage values.
+
+So we create:
+
+void clearPicture()
+
+Its job:
+
+picture[i][j] = '_';
+
+for every row and column.
+
+After filling:
+
+____________________
+____________________
+____________________
+____________________
+
+Now the screen is empty.
+
+Think:
+
+_ = empty space
+* = drawing
+Step 3: Display the Screen
+
+The array is inside memory.
+
+We cannot see it.
+
+So we write:
+
+void displayPicture()
+
+which prints every character.
+
+Example:
+
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+Why do we need these functions?
+
+Later:
+
+Suppose user draws rectangle.
+
+Before drawing:
+
+____________________
+____________________
+____________________
+
+After drawing:
+
+____*****___________
+____*___*___________
+____*****___________
+
+To show this, we need:
+
+displayPicture();
+
+Without display function we cannot see anything.
+
+What should happen today?
+
+Only this:
+
+Create array
+char picture[25][60];
+Create function
+clearPicture();
+Create function
+displayPicture();
+Output
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+
+Nothing else.
+For Day 1, use this complete program:
+
+#include <stdio.h>
+
+#define ROWS 25
+#define COLS 60
+
+char picture[ROWS][COLS];
+
+/* Fill the canvas with '_' */
+void clearPicture()
+{
+    int i, j;
+
+    for(i = 0; i < ROWS; i++)
+    {
+        for(j = 0; j < COLS; j++)
+        {
+            picture[i][j] = '_';
+        }
+    }
+}
+
+/* Display the canvas */
+void displayPicture()
+{
+    int i, j;
+
+    for(i = 0; i < ROWS; i++)
+    {
+        for(j = 0; j < COLS; j++)
+        {
+            printf("%c", picture[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    printf("DAY 1 : BLANK 2D CANVAS\n\n");
+
+    clearPicture();
+    displayPicture();
+
+    return 0;
+}
+What this program does
+Creates a 2D array:
+char picture[25][60];
+Fills every position with:
+'_'
+Prints the entire canvas.
+Output
+DAY 1 : BLANK 2D CANVAS
+
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+____________________________________________________________
+...
+Day 1 GitHub Commit
+
+After running successfully:
+
+git add .
+git commit -m "Day 1: Created blank 2D canvas"
+git push
+
+This completes Day 1. Tomorrow we'll add drawLine() and actually start drawing using *.
+Where 
+Tell ne
+
+Your Day 1 work is already done. 🎉
+
+From your screenshot, I can see:
+
+✅ char pict[row][col]; → picture created
+✅ Function to fill _ → clear_garbage_val()
+✅ Function to display → display_the_pic()
+✅ Output showing many _ lines
+
+That is exactly what Day 1 required.
+
+Now push to GitHub
+
+In the terminal, type:
+
+git add .
+
+Press Enter.
+
+Then:
+
+git commit -m "Day 1 completed"
+
+Press Enter.
+
+Then:
+
+git push
+
+Press Enter.
+
+About the terminal
+
+To get a fresh terminal:
+
+Click the X at the top-right of the terminal panel (close terminal).
+Click the + beside it (new terminal).
+
+That's all.
+
+Day 1 Summary
+
+You have:
+
+Created a 2D character array.
+Stored _ in it.
+Displayed the picture.
+
+So Day 1 is complete. Tomorrow we'll add drawLine() and start drawing * on the canvas. 🚀
+What is this all . Why other than output something extra will xoen
+Coming like this . If I add git add it is getting git addcd
+It is showing like this . Nothing is updat ed d
+Is it everything ok
+
+Yes bro, 100% yes. 👍
+
+Don't create a new program.
+
+Keep building the same file:
+
+graphic_editor.c
+Day 1
+
+You had:
+
+picture[][]
+clearPicture()
+displayPicture()
+Day 2
+
+Keep all of Day 1 code.
+
+Just add:
+
+drawLine()
+
+So your file becomes:
+
+Header files
+
+Global array
+
+Function Prototypes
+    clearPicture()
+    displayPicture()
+    drawLine()
+
+main()
+
+clearPicture() body
+displayPicture() body
+drawLine() body
+Think of it like building a house
+
+Day 1:
+🏠 Foundation
+
+Day 2:
+🧱 Add a wall
+
+Day 3:
+🧱 Add another wall
+
+You don't destroy yesterday's work. You keep adding to it.
+
+So tomorrow when you open:
+
+graphic_editor.c
+
+you will see yesterday's code and simply add drawLine() below the existing functions and call it from main().
+
+That's how real projects are developed. 🚀
+Pasted text(3).txt
+Document
+Which one i should download for Dell laptop
+
+Yes. You need to create one file named:
+
+prompt.txt
+
+Inside it, write like this:
+
+Prompt 1:
+Requirements:
+Create a 2D graphics editor using * and _.
+Use a 2D array, draw line, rectangle, triangle and circle.
+
+Response 1:
+The project can be made in C using a 2D character array. The array stores '_' for empty space and '*' for drawing shapes.
+
+Prompt 2:
+Give Day 1 code for blank canvas.
+
+Response 2:
+Created char pict[row][col], clear function, and display function.
+
+Prompt 3:
+Give code for diagonal line.
+
+Response 3:
+Added diagonal line function using pict[i][i] = '*'.
+
+Prompt 4:
+Give code for rectangle.
+
+Response 4:
+Added rectangle function using length and width from user.
+
+Prompt 5:
+Give code for circle.
+
+Response 5:
+Added circle function using center row and column.
+
+Prompt 6:
+Give code for switch menu.
+
+Response 6:
+Added menu using switch case to choose line, square, rectangle, circle.
+How to create it
+
+In your project folder:
+
+Open VS Code.
+Right-click in Explorer.
+Click New File.
+Name it:
+prompt.txt
+Paste the prompts and responses.
+Save.
+Push to GitHub:
+git add .
+git commit -m "Added prompt.txt"
+git push
+
+This satisfies your teacher’s instruction.
+
+.
+
+Bro, don't leave prompt.txt till the end.
+
+Every day, add the prompts you used.
+
+For your project, you can start prompt.txt like this:
+
+Prompt 1:
+What is a 2D graphics editor?
+
+Response 1:
+A 2D graphics editor is a program that draws shapes on a two-dimensional canvas using rows and columns.
+
+Prompt 2:
+Give Day 1 code for creating a blank canvas using a 2D character array.
+
+Response 2:
+Created a 2D character array, filled it with '_' and displayed it on the screen.
+
+Prompt 3:
+Give code for a diagonal line.
+
+Response 3:
+Created a function that stores '*' diagonally using pict[row+i][col+i].
+
+Prompt 4:
+Give code for a rectangle.
+
+Response 4:
+Created a rectangle using top, bottom, left and right boundaries.
+
+Prompt 5:
+Give code for a square.
+
+Response 5:
+Created a square using starting row, column and side length entered by the user.
+
+Prompt 6:
+Give code for a circle.
+
+Response 6:
+Created a simple ASCII circle using '*' characters around a center point.
+
+Prompt 7:
+Give code to take user choice using switch case.
+
+Response 7:
+Created a menu to allow the user to select which shape to draw.
+
+Save this as:
+
+prompt.txt
+
+inside your GitHub project folder and then:
+
+git add .
+git commit -m "Added prompt.txt"
+git push
+
+This will satisfy the GenAI prompt submission requirement. ✅
+
+can i do it in notepad
+
+Yes bro, absolutely. ✅
+
+You can create prompt.txt using Notepad.
+
+Steps
+Open Notepad
+Paste all your prompts and responses
+Click:
+File → Save As
+Go to your project folder:
+C:\Users\H S BHUVAN\OneDrive\Documents\GitHub\2D-GRAPHIC_EDITOR
+In File name, type:
+prompt.txt
+In Save as type, choose:
+All Files (*.*)
+Click Save
+Important
+
+Don't save as:
+
+prompt.txt.txt
+
+It must be exactly:
+
+prompt.txt
+
+After saving, you'll see:
+
+2D-GRAPHIC_EDITOR
+│
+├── graphic_editor.c
+├── prompt.txt
+
+Then push it to GitHub:
+
+git add .
+git commit -m "Added prompt.txt"
+git push
+
+Yes, Notepad is perfectly fine. 👍
